@@ -30,4 +30,7 @@ setup(
         "Topic :: Utilities",
         "License :: OSI Approved :: MIT License",
     ],
+    install_requires=(
+        'django-admin-sortable2',
+    ),
 )

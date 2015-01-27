@@ -7,7 +7,14 @@ import json
 from django.db import models
 from filer.fields.image import FilerImageField
 
+try:
+    from cms.models import CMSPlugin
+    USE_CMS = True
+except ImportError:
+    USE_CMS = False
+
 from vernissage import settings as vsets
+
 
 class Image(models.Model):
     """
@@ -24,6 +31,7 @@ class Image(models.Model):
     class Meta:
         ordering = ('order',)
 
+
 class Gallery(models.Model):
     """
     Gallery model
@@ -32,8 +40,20 @@ class Gallery(models.Model):
     attributes = models.TextField(default=json.dumps(
         vsets.VERNISSAGE_GALLERY_ATTRIBUTES))
 
+    @property
+    def template(self):
+        return "vernissage/carousel.html"
+
     def __unicode__(self):
         return self.title
 
     class Meta:
         verbose_name_plural = 'Galleries'
+
+
+if USE_CMS:
+    class GalleryPlugin(CMSPlugin):
+        gallery = models.ForeignKey(Gallery)
+
+        def __unicode__(self):
+            return u"Gallery '{}'".format(self.gallery)

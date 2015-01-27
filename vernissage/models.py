@@ -24,7 +24,7 @@ class Image(models.Model):
     description = models.CharField(max_length=2048)
     image = FilerImageField(related_name="gallery_image")
     alt = models.CharField(max_length=128)
-    gallery = models.ForeignKey('vernissage.Gallery')
+    gallery = models.ForeignKey('vernissage.Gallery', related_name="images")
 
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
 

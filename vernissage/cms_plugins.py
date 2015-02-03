@@ -2,13 +2,14 @@
 # imported if django-cms is not installed, and if it is, it will be imported
 # by the plugins autodiscovery feature
 
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
 from vernissage.models import GalleryPlugin
-from vernissage.admin import GalleryInline
+from vernissage.admin import ImageInline
+
 
 
 class CMSGalleryPlugin(CMSPluginBase):
@@ -16,6 +17,10 @@ class CMSGalleryPlugin(CMSPluginBase):
     module = _("Gallery")
     name = _("Gallery Plugin")
     render_template = "vernissage/gallery_plugin.html"
+
+    inlines = [
+        ImageInline,
+    ]
 
     def render(self, context, instance, placeholder):
         context.update({"instance": instance})

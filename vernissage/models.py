@@ -52,8 +52,7 @@ class Gallery(models.Model):
 
 
 if USE_CMS:
-    class GalleryPlugin(CMSPlugin):
-        gallery = models.ForeignKey(Gallery)
+    class GalleryPlugin(CMSPlugin, Gallery):
 
         def __unicode__(self):
             return u"Gallery '{}'".format(self.gallery)

@@ -27,6 +27,7 @@ setup(
       '': ['templates/vernissage/*.html'],
     },
     include_package_data=True,
+    zip_safe=False,
     url="https://github.com/Lacrymology/django-vernissage",
     long_description=read('README.md'),
     classifiers=[

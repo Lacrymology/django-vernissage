@@ -23,6 +23,10 @@ setup(
     license="MIT",
     keywords=["django", "image-gallery", "filer django-cms"],
     packages=find_packages(),
+    package_data={
+      '': ['templates/vernissage/*.html'],
+    },
+    include_package_data=True,
     url="https://github.com/Lacrymology/django-vernissage",
     long_description=read('README.md'),
     classifiers=[

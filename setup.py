@@ -21,9 +21,8 @@ setup(
     author_email="lacrymology@gmail.com",
     description=("An extremely simple dynamic TemplateView for django"),
     license="MIT",
-    keywords="django generic-views",
+    keywords="django image-gallery filer django-cms",
     url="https://github.com/Lacrymology/django-vernissage",
-    packages=['vernissage'],
     long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",

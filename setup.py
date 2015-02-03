@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # Utility function to read the README file.
 # Used for the long_description.  It's nice, because now 1) we have a top level
@@ -21,7 +21,8 @@ setup(
     author_email="lacrymology@gmail.com",
     description=("An extremely simple dynamic TemplateView for django"),
     license="MIT",
-    keywords="django image-gallery filer django-cms",
+    keywords=["django", "image-gallery", "filer django-cms"],
+    packages=find_packages(),
     url="https://github.com/Lacrymology/django-vernissage",
     long_description=read('README.md'),
     classifiers=[

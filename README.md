@@ -4,6 +4,12 @@
 together with django-filer. It allows to create image galleries from
 django-filer image files.
 
+## Features
+
+1. Defaults for easy usage with twitter bootstrap's carousels
+2. Drag-and-drop ordering of the images in a gallery
+3. Includes ready to use [django-cms](https://www.django-cms.org/en/) plugin
+
 ## Dependencies
 
 Vernissage has been developed and tested with django 1.6. Usage with
@@ -11,6 +17,10 @@ Vernissage has been developed and tested with django 1.6. Usage with
 You'll probably be asked to generate the new-style migrations, and
 that should be it. If you want to do the migration work, please send a
 pull request!
+
+Vernissage uses
+[django-admin-sortable2](http://django-admin-sortable2.readthedocs.org/)
+to provide drag-and-drop sorting for the images in a gallery.
 
 ## Installation
 
@@ -20,18 +30,23 @@ pull request!
    pip install django-vernissage
    ```
 
-2. Add it to ``INSTALLED_APPS``
+2. Add ``vernissage`` and ``adminsortable`` to ``INSTALLED_APPS``
 
    ```
    INSTALLED_APPS = (
 	   ...
 	   'vernissage',
+	   'adminsortable',
 	   ...
    )
    ```
 
 3. run ``./manage.py syncdb`` (or ``./manage.py migrate`` if you're
    using ``south``.
+
+If you want to use the django-cms plugin, it is possible that you
+won't want the Vernissage models appearing in the admin. If so, set
+the ``VERNISSAGE_ADMIN`` setting to ``False``
 
 ## Usage
 

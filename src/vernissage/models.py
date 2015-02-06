@@ -56,4 +56,5 @@ if USE_CMS:
     class GalleryPlugin(CMSPlugin, Gallery):
 
         def __unicode__(self):
-            return u"Gallery '{}'".format(self.gallery)
+            return u"Gallery '{}'".format(
+                super(GalleryPlugin, self).__unicode__())

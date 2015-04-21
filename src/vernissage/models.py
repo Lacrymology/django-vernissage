@@ -22,9 +22,9 @@ class Image(models.Model):
     Image objects for the galleries
     """
     title = models.CharField(max_length=128)
-    description = models.CharField(max_length=2048)
+    description = models.CharField(max_length=2048, blank=True, null=True)
     image = FilerImageField(related_name="gallery_image")
-    alt = models.CharField(max_length=128)
+    alt = models.CharField(max_length=128, blank=True, null=True)
     gallery = models.ForeignKey('vernissage.Gallery', related_name="images")
 
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
